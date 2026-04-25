@@ -1,0 +1,423 @@
+/* Responsive Fixes & Enhancements */
+
+/* 1. Global Responsive Rules */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for fixed height images on mobile */
+@media (max-width: 768px) {
+
+    .content-img,
+    .img-placeholder {
+        height: 250px !important;
+        /* Reduce height on mobile */
+        object-fit: cover;
+    }
+
+    .section-container {
+        padding: 3rem 1.5rem;
+        /* Adjust padding for mobile */
+    }
+
+    /* Publication Note Padding Fix */
+    .publication-note {
+        padding: 1.5rem !important;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+}
+
+/* 2. Navigation Scroll Offsets */
+/* Ensure properly spaced scrolling to anchor links */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Helper for some browsers */
+}
+
+/* Apply consistent scroll margin to all target sections */
+section,
+div[id] {
+    scroll-margin-top: 80px;
+}
+
+/* 3. Account & Contact Section Grid Updates */
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+    gap: 10px;
+}
+
+.info-label {
+    min-width: 130px;
+    font-weight: 600;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.info-value {
+    text-align: right;
+    color: var(--text-color);
+    word-break: break-word;
+    flex: 1;
+}
+
+.info-divider {
+    height: 1px;
+    background-color: #f0f0f0;
+    margin: 0.2rem 0;
+    width: 100%;
+}
+
+/* Contact List Styles */
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.5rem;
+}
+
+.contact-label {
+    min-width: 180px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.contact-value {
+    color: var(--text-color);
+    word-break: break-word;
+    line-height: 1.5;
+}
+
+.contact-spacer {
+    height: 0.8rem;
+}
+
+.contact-spacer-line {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 1.5rem 0;
+}
+
+.contact-note {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    background: #f9f9f9;
+    padding: 1rem;
+    border-left: 3px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.email-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.email-link:hover {
+    color: var(--secondary-color);
+}
+
+/* 4. Mobile Refinements */
+@media (max-width: 600px) {
+
+    /* Account Info mobile stack */
+    .info-item {
+        flex-direction: column;
+        gap: 0.2rem;
+        border-bottom: 1px solid #f9f9f9;
+        padding-bottom: 0.8rem;
+    }
+
+    .info-label {
+        width: 100%;
+        color: var(--primary-color);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .info-value {
+        width: 100%;
+        text-align: left;
+        padding-left: 0;
+        font-size: 1.05rem;
+        font-weight: 500;
+    }
+
+    .info-divider {
+        display: none;
+    }
+
+    /* Contact Info mobile stack */
+    .contact-item {
+        flex-direction: column;
+        gap: 0.3rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .contact-label {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 4px;
+        color: var(--primary-color);
+        font-size: 0.95rem;
+    }
+
+    .contact-spacer {
+        display: none;
+    }
+
+    .contact-value {
+        padding-left: 0;
+    }
+
+    /* Important Dates & Fees List Wrapping */
+    .dates-list li,
+    .fee-list li {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.5rem;
+    }
+
+    .date-value,
+    .price {
+        align-self: flex-start;
+        /* Align left */
+        margin-left: 1.5rem;
+        /* Indent slightly */
+    }
+
+    /* Grid Layout Fixes for small screens */
+    .member-grid,
+    .topics-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .topic-card {
+        padding: 1.5rem 1rem;
+    }
+
+    body,
+    html {
+        overflow-x: hidden;
+    }
+
+    /* Countdown Timer Responsiveness */
+    .time-box {
+        min-width: 60px;
+        padding: 0.5rem;
+    }
+
+    .time-box span {
+        font-size: 1.5rem;
+    }
+
+    .hero h4 {
+        font-size: 1.2rem !important;
+    }
+}
+
+/* 5. Navigation & Layout Fixes */
+/* Ensure the body doesn't hide behind the fixed header */
+body {
+    padding-top: 70px;
+}
+
+/* Adjust Hero Section to account for body padding */
+.hero {
+    margin-top: -70px;
+    /* Undo body padding for hero to allow full bleed */
+    padding-top: 140px;
+    /* Compensate internally */
+    min-height: calc(100vh);
+    /* Ensure full height */
+}
+
+/* Fix for split layout on tablets */
+@media (max-width: 900px) {
+
+    .split-layout,
+    .split-layout.reverse {
+        flex-direction: column !important;
+        gap: 2rem;
+    }
+
+    .image-content,
+    .text-content {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   6. Dropdown Menu Styles
+   ========================================= */
+
+/* Desktop Dropdown Container */
+.dropdown {
+    position: relative;
+    /* display: inline-block; is handled by li display */
+}
+
+/* Dropdown Button (Link) Styling */
+.dropbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* Space between text and arrow */
+    cursor: pointer;
+}
+
+.dropbtn i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate arrow on hover */
+.dropdown:hover .dropbtn i {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Content (Hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Center dropdown */
+    background-color: #03337C;
+    /* Match Navbar Background */
+    min-width: 240px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 0 0 12px 12px;
+    /* Round bottom corners */
+    overflow: hidden;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    border-top: 3px solid #fdcb29;
+    /* Highlight top */
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Dropdown Links */
+.dropdown-content a {
+    color: rgba(255, 255, 255, 0.9) !important;
+    /* Force white text */
+    padding: 12px 20px 12px 35px;
+    /* Added left indentation */
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fdcb29 !important;
+    padding-left: 25px;
+    /* Slide effect */
+}
+
+/* Mobile Navigation Dropdown Adjustments */
+@media (max-width: 900px) {
+    .dropdown {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    /* Make the "Header" look like a regular link again */
+    .dropbtn {
+        width: 100%;
+        justify-content: center;
+        pointer-events: auto;
+        /* Allow clicking on mobile */
+        color: #fdcb29 !important;
+        /* Match other links (yellow) */
+        font-weight: 500;
+        text-transform: none;
+        letter-spacing: normal;
+        margin-bottom: 0;
+        font-size: 1.2rem;
+        opacity: 1;
+    }
+
+    .dropbtn i {
+        display: none;
+        /* Hide arrow on mobile */
+    }
+
+    /* Hide Dropdown Content on Mobile */
+    .dropdown .dropdown-content {
+        display: none !important;
+    }
+}
+
+/* =========================================
+   7. Tablet / Smaller Desktop Typography (900px - 1200px)
+   ========================================= */
+@media (max-width: 1200px) and (min-width: 901px) {
+    .section-title-large {
+        font-size: 3.2rem;
+    }
+
+    .section-heading {
+        font-size: 1.6rem;
+        white-space: normal;
+    }
+
+    .box-style .section-heading {
+        font-size: 1.4rem;
+        white-space: normal;
+    }
+
+    .hero h4 {
+        font-size: 1.3rem;
+    }
+}
